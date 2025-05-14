@@ -1,0 +1,19 @@
+# 🔒 Ignore credentials
+.env
+.streamlit/secrets.toml
+
+# 🗑️ Ignore compiled Python files
+__pycache__/
+*.py[cod]
+
+# 🧪 Ignore virtual environment
+venv/
+.venv/
+
+# 💻 Ignore OS/Editor system files
+.DS_Store
+*.log
+
+# 📦 Ignore package lock files (in case of pipenv or poetry)
+Pipfile.lock
+poetry.lock
