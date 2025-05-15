@@ -8,3 +8,5 @@ mysql-connector-python
 sentence-transformers
 scikit-learn
 scipy
+python-dotenv
+Pillow
