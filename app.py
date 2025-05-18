@@ -16,8 +16,21 @@ nlp = spacy.load("en_core_web_sm")
 # ==========================
 #  LOAD ENVIRONMENT VARIABLES
 # ==========================
-load_dotenv()
+# Try to load from .env file (for local development)
+try:
+    load_dotenv()
+except:
+    pass
+
+# Try to get API key from environment or Streamlit secrets
 api_key = os.getenv("GROQ_API_KEY")
+if not api_key and "GROQ_API_KEY" in st.secrets:
+    api_key = st.secrets["GROQ_API_KEY"]
+
+# Check if API key exists
+if not api_key:
+    st.error("Groq API key not found. Please check your configuration.")
+    st.stop()
 
 # Initialize Groq API Client
 client = Groq(api_key=api_key)
